@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-size: 14px;
+    font-family: "Montserrat";
+
+}
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-size: 14px;
+}/* reseta o css do navegador */
+
+.cabecalho {
+
+    width: 100vw;
+    height: 80px;
+    background: rgb(55,80,179);
+    background: linear-gradient(180deg, rgba(55,80,179,1) 0%, rgba(255,255,255,0) 100%);
+    position: absolute;
+    width: 100%; /*Define a largura*/
+    padding: 15px 120px; /*margem interna*/
+    display: flex;    /* Alinha conteúdos um ao lado do outro */
+    justify-content: space-between;    /* cria espaço entre os elementos de header */
+}
+
+.cabecalho img {
+    width: 100px;    
+    /* transform: translateX(-20px); */
+}
+
+.cabecalho nav {
+    justify-content: space-between;
+    padding: 15px; /*margem interna*/
+    
+}
+
+.cabecalho nav a {
+    margin-left: 100px;        
+}
+
+.banner {
+    background-image: url(../imgs/avatar2.jpg);
+    background-size: cover;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;   
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 150px; 
+    padding-left: 120px;
+    color: white;    
+}
+
+.banner h1 {
+    font-size: 2em;
+    font-family: "Merriweather";
+    width: 38vw;
+}
+
+.banner p{
+    width: 37vw;
+}
+
+.gradient_bottom {
+    background: rgb(255,255,255);
+    background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(55,80,179,1) 100%);
+    padding: 15px; /*margem interna*/
+    padding-top: 80px;  
+    width: 100vw;
+    height: 80px;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+}
