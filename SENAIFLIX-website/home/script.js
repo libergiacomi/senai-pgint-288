@@ -1,4 +1,4 @@
-function fecharCabecalhoMobile () {
+function fecharCabecalhoMobile() {
 
     // Pega a referencia do elemento através do ID.
     let cabecalhoMobile = document.querySelector("#cabecalho-mobile");
@@ -7,8 +7,8 @@ function fecharCabecalhoMobile () {
 
 }
 
-function abrirCabecalhoMobile () {
-    
+function abrirCabecalhoMobile() {
+
     let cabecalho = document.querySelector("#cabecalho-mobile");
     cabecalho.style.display = "block";
 
@@ -270,7 +270,7 @@ let midia = [
     }
 ];
 
-function carregarFilmes () {
+function carregarFilmes() {
 
     let filmeContainer = document.querySelector("#filmes-card-container");
 
@@ -279,7 +279,7 @@ function carregarFilmes () {
     let filmes = midia.filter(midia_ => midia_.tipo == "filme");
 
     for (const filme of filmes) {
-        
+
         let novoCard = document.createElement("a");
 
         novoCard.classList.add("card");
@@ -296,7 +296,7 @@ function carregarFilmes () {
 
 }
 
-function carregarSeries () {
+function carregarSeries() {
 
     let filmeContainer = document.querySelector("#series-card-container");
 
@@ -305,7 +305,7 @@ function carregarSeries () {
     let filmes = midia.filter(midia_ => midia_.tipo == "serie");
 
     for (const filme of filmes) {
-        
+
         let novoCard = document.createElement("a");
 
         novoCard.classList.add("card");
@@ -328,14 +328,14 @@ function aoPesquisarPorTitulo(titulo) {
 
     let filmeContainer = document.querySelector("#filmes-card-container")
     console.log(resultadosFilmes);
-    
+
     filmeContainer.innerHTML = "";
 
     let resultadosSeries = midia.filter(m => m.tipo == "serie" && m.nome.toLowerCase().includes(titulo.toLowerCase()))
 
     let seriesContainer = document.querySelector("#series-card-container")
     console.log(resultadosSeries);
-    
+
     seriesContainer.innerHTML = "";
 
     for (const filme of resultadosFilmes) {
@@ -392,6 +392,8 @@ function aoPesquisarPorTitulo(titulo) {
 function aoFiltrarPorGenero(genero) {
     console.log("Gênero: ", genero);
 
+    debugger;
+
     let filmesFiltrados = midia.filter(m => {
         if (m.tipo != "filme") {
             return false;
@@ -403,15 +405,100 @@ function aoFiltrarPorGenero(genero) {
             if (genero == genero_) {
                 encontrouOGenero = true;
             }
-        
+
         if (encontrouOGenero == true) {
-            return true;            
+            return true;
         } else {
             return false;
         }
-
     })
+    //alterar
+    let filmeContainer = document.querySelector("#filmes-card-container")
+    // console.log(resultadosFilmes);
+
+    filmeContainer.innerHTML = "";
+
+    for (const filme of filmesFiltrados) {
+        let novoCard = document.createElement("a")
+        novoCard.classList.add("card")
+        // <a class="card"> </a>
+
+        novoCard.href = "../detalhes-do-filme"
+        // <a class="card" href="../detalhes-do-filme"> </a> 
+
+        novoCard.style.backgroundImage = `url('../assets/imgs/${filme.poster}')`
+
+        filmeContainer.appendChild(novoCard)
+    }
+
+    if (filmesFiltrados.length == 0) {
+        let mensagem = document.createElement("p")
+
+        mensagem.textContent = "Nenhum resultado encontrado."
+
+        mensagem.style.textAlign = "center"
+
+        mensagem.style.color = "#555"
+
+        filmeContainer.appendChild(mensagem)
+    }
+
+    //alterar
+    let seriesFiltradas = midia.filter(m => {
+        if (m.tipo != "serie") {
+            return false;
+        }
+
+        let encontrouOGenero = false;
+
+        for (const genero_ of m.genero)
+            if (genero == genero_) {
+                encontrouOGenero = true;
+            }
+
+        if (encontrouOGenero == true) {
+            return true;
+        } else {
+            return false;
+        }
+    })
+    let seriesContainer = document.querySelector("#series-card-container")
+    // console.log(resultadosFilmes);
+
+    seriesContainer.innerHTML = "";
+
+
+
+    for (const serie of seriesFiltradas) {
+        let novoCard = document.createElement("a")
+        novoCard.classList.add("card")
+        // <a class="card"> </a>
+
+        novoCard.href = "../detalhes-do-filme"
+        // <a class="card" href="../detalhes-do-filme"> </a> 
+
+        novoCard.style.backgroundImage = `url('../assets/imgs/${serie.poster}')`
+
+        seriesContainer.appendChild(novoCard)
+    }
+
+    if (seriesFiltradas.length == 0) {
+        let mensagem = document.createElement("p")
+
+        mensagem.textContent = "Nenhum resultado encontrado."
+
+        mensagem.style.textAlign = "center"
+
+        mensagem.style.color = "#555"
+
+        seriesContainer.appendChild(mensagem)
+    }
+
+    console.log("Filmes filtrados: ", filmesFiltrados);
+    console.log("Séries filtradas: ", seriesFiltradas);
 }
+
+
 // Juntar texto com um variável
 // Concatenação
 // console.log("Filme: " + nomeDoFilme + "Assista!" + atores)
