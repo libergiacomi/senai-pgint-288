@@ -110,8 +110,7 @@ body {
     margin-top: 25px;
     text-align: center;
     border-radius: 7px;
-    border: 1px solid white;
-
+    border: 2px solid yellowgreen;
 }
 
 .filmes-series {
@@ -188,6 +187,21 @@ body {
 
     border-radius: 7px;
 
+    animation-name: mostrarcartao;
+    animation-duration: .5s;
+    
+}
+
+@keyframes mostrarcartao {
+    0% {
+        transform: translateY(25px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
 }
 
 footer {
