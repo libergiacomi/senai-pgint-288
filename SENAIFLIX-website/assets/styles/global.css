@@ -101,6 +101,19 @@ body {
 
 }
 
+.button {
+    color: black;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: white;
+    height: 30px;
+    margin-top: 25px;
+    text-align: center;
+    border-radius: 7px;
+    border: 1px solid white;
+
+}
+
 .filmes-series {
 
     width: 100%;
